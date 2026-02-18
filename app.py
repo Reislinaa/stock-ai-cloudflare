@@ -15,7 +15,8 @@ DOUBAO_API_KEY = "6fd21b6a-281f-4fea-9886-cdf961e5c738"
 
 def get_a_stock_simple_data():
     try:
-        df = ak.stock_zh_a_spot_em().head(30)
+        # 适配akshare新版本，增加超时容错
+        df = ak.stock_zh_a_spot_em(timeout=10).head(30)
         core_columns = ['代码', '名称', '最新价', '涨跌幅', '涨跌额', '换手率']
         df = df[core_columns].fillna(0)
         return df
