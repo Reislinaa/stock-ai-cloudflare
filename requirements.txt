@@ -1,0 +1,4 @@
+flask==3.1.2
+akshare==1.10.48
+requests==2.31.0
+pandas==2.2.1
